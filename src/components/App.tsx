@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { type ReactElement } from 'react'
+import HeaderSection from './HeaderSection'
+import MainSection from './MainSection'
 
-const App = (): React.ReactElement => {
+const App = (): ReactElement => {
   return (
-    <div>
-      App component 1
-    </div>
+    <main className="flex-grow-1">
+      <HeaderSection/>
+      <MainSection/>
+    </main>
   )
 }
 
 export default App
-
-
