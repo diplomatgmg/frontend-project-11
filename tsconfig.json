@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2020",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "sourceRoot": "./src",
+    "outDir": "./dist"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
