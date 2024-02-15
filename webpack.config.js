@@ -29,8 +29,9 @@ export default {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: 'index.html',
     }),
   ],
   resolve: {
