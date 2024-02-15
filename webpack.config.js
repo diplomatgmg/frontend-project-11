@@ -1,8 +1,11 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
 
 export default {
   entry: './src/index.tsx',
+  mode: process.env.NODE_ENV || 'development',
   module: {
     rules: [
       {
@@ -21,8 +24,7 @@ export default {
         use: 'ts-loader',
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
     ],
   },
