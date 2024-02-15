@@ -1,12 +1,13 @@
 import React, { type ReactElement } from 'react'
+import { Row, Col } from 'react-bootstrap'
 
 const MainSection = (): ReactElement => {
   return (
     <section className="container-fluid container-xxl p-5">
-      <div className="row">
-        <div className="col-md-10 col-lg-8 order-1 mx-auto posts"></div>
-        <div className="col-md-10 col-lg-4 mx-auto order-0 order-lg-1 feeds"></div>
-      </div>
+      <Row>
+        <Col md={10} lg={8} order={1} className="mx-auto posts"></Col>
+        <Col md={10} lg={4} order={0} order-lg={1} className="mx-auto feeds"></Col>
+      </Row>
     </section>
   )
 }
