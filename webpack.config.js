@@ -1,6 +1,5 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 
 export default {
@@ -23,13 +22,9 @@ export default {
         exclude: /node_modules/,
         use: 'ts-loader',
       },
-      {
-        test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-      },
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
@@ -40,7 +35,6 @@ export default {
   output: {
     filename: 'bundle.js',
     path: path.resolve('dist'),
-    publicPath: '/',
   },
   devServer: {
     contentBase: path.resolve('dist'),
