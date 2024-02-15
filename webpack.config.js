@@ -1,5 +1,5 @@
 import path from 'path';
-
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   entry: './src/index.tsx',
@@ -18,6 +18,10 @@ export default {
           'ts-loader',
         ],
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   resolve: {
@@ -27,6 +31,11 @@ export default {
     filename: 'bundle.js',
     path: path.resolve('dist'),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+    }),
+  ],
 };
 
 
