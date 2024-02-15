@@ -1,6 +1,7 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const config = {
+export default {
   entry: './src/index.tsx',
   module: {
     rules: [
@@ -21,15 +22,23 @@ const config = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve('./dist'),
+    path: path.resolve('dist'),
   },
-  mode: "development"
+  devServer: {
+    contentBase: path.resolve('dist'),
+    compress: true,
+    port: 3000,
+  },
 };
 
 
-export default config;
