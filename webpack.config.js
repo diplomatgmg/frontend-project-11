@@ -26,7 +26,7 @@ const config = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve('./dist'),
+    path: path.resolve('./build'),
   },
   mode: "development"
 };
