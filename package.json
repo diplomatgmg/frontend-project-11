@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node node_modules/react-scripts/scripts/start.js",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
