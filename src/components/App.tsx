@@ -1,6 +1,6 @@
 import React, { type ReactElement } from 'react'
-import HeaderSection from './HeaderSection'
-import MainSection from './MainSection'
+import HeaderSection from '../containers/HeaderSection'
+import MainSection from '../containers/MainSection'
 
 const App = (): ReactElement => {
   return (
