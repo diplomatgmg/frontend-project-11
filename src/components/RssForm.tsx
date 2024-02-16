@@ -1,12 +1,14 @@
 import React, { type ChangeEvent, type FC, type ReactElement, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { isValidUrl } from '../utils/helpers'
+import { useTranslation } from 'react-i18next'
 
 interface RssFormProps {
   setIsUrlValid: (value: boolean) => void
 }
 
 const RssForm: FC<RssFormProps> = ({ setIsUrlValid }): ReactElement => {
+  const { t } = useTranslation()
   const [input, setInput] = useState<string>('')
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -29,14 +31,14 @@ const RssForm: FC<RssFormProps> = ({ setIsUrlValid }): ReactElement => {
               name="url"
               aria-label="url"
               autoComplete="off"/>
-            <Form.Label htmlFor="url-input">Ссылка RSS</Form.Label>
+            <Form.Label htmlFor="url-input">{t('rssLink')}</Form.Label>
           </Form.Group>
         </Col>
         <Col xs="auto">
           <Button type="submit"
                   aria-label="add"
                   className="h-100 btn-lg px-sm-5">
-            Добавить
+            {t('add')}
           </Button>
         </Col>
       </Row>

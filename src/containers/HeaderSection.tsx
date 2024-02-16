@@ -1,8 +1,11 @@
-import React, { type ReactElement, useState } from 'react'
+import React, { type ReactElement, Suspense, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import RssForm from '../components/RssForm'
+import { useTranslation } from 'react-i18next'
+import LanguageSelector from '../components/LanguageSelector'
 
 const HeaderSection = (): ReactElement => {
+  const { t } = useTranslation()
   const [isUrlValid, setIsUrlValid] = useState<boolean>(true)
 
   return (
@@ -10,12 +13,17 @@ const HeaderSection = (): ReactElement => {
       <Container>
         <Row>
           <Col md={10} lg={8} className="mx-auto text-white">
-            <h1 className="display-3 mb-0">RSS агрегатор</h1>
-            <p className="lead">Начните читать RSS сегодня! Это легко, это красиво.</p>
-            <RssForm setIsUrlValid={setIsUrlValid} />
-            <p className="mt-2 mb-0 opacity-50">Пример: https://lorem-rss.hexlet.app/feed</p>
-            <p className="feedback m-0 position-absolute small text-danger">{isUrlValid ? null : 'Ссылка должна быть валидным URL'}</p>
+            <h1 className="display-3">{t('rssAggregator')}</h1>
+            <p className="lead">{t('startReadingRss')}</p>
+            <RssForm setIsUrlValid={setIsUrlValid}/>
+            <p className="mt-2 opacity-50">{t('example')}: https://lorem-rss.hexlet.app/feed</p>
+            <p className="feedback position-absolute small text-danger">
+              {!isUrlValid && 'Ссылка должна быть валидным URL'}
+            </p>
           </Col>
+          <Suspense fallback="...loading">
+            <LanguageSelector/>
+          </Suspense>
         </Row>
       </Container>
     </section>
