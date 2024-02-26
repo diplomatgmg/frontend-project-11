@@ -19,7 +19,6 @@ void i18n
   .use(initReactI18next)
   .init({
     resources,
-    debug: true,
     lng: 'ru',
     interpolation: {
       escapeValue: false
