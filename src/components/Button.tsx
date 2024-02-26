@@ -6,9 +6,10 @@ interface ButtonProps {
   type: 'button' | 'submit'
   isPrimary?: boolean
   isOutlinePrimary?: boolean
+  onClick: () => void
 }
 
-const Button: FC<ButtonProps> = ({ text, type, isPrimary, isOutlinePrimary }): ReactElement => {
+const Button: FC<ButtonProps> = ({ text, type, isPrimary, isOutlinePrimary, onClick }): ReactElement => {
   const className = classNames('btn', 'btn-sm', {
     'btn-primary': isPrimary,
     'btn-outline-primary': isOutlinePrimary
@@ -17,6 +18,7 @@ const Button: FC<ButtonProps> = ({ text, type, isPrimary, isOutlinePrimary }): R
   return (
     <button type={type}
             className={className}
+            onClick={onClick}
             data-id="12"
             data-bs-toggle="modal"
             data-bs-target="#modal">{text}

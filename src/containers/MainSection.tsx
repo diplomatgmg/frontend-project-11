@@ -1,7 +1,8 @@
-import React, { type ReactElement } from 'react'
+import React, { type ReactElement, useState } from 'react'
 import Button from '../components/Button'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import ModalWindow from '../components/ModalWindow'
 
 interface Post {
   title: string
@@ -10,8 +11,20 @@ interface Post {
 
 const MainSection = (): ReactElement => {
   const { t } = useTranslation()
-
   const posts = useSelector((state: any) => state.posts)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null)
+
+  const openModal = (post: Post): void => {
+    setSelectedPost(post)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = (): void => {
+    setSelectedPost(null)
+    setIsModalOpen(false)
+  }
 
   const renderPosts = (): ReactElement | null => {
     if (posts.length === 0) {
@@ -33,7 +46,11 @@ const MainSection = (): ReactElement => {
                 {title}
               </a>
 
-              <Button text={t('watch')} type={'button'} isOutlinePrimary></Button>
+              <Button text={t('watch')}
+                      type={'button'}
+                      isOutlinePrimary
+                      onClick={() => openModal({ title, description })}
+              />
             </li>
           ))}
         </ul>
@@ -43,14 +60,19 @@ const MainSection = (): ReactElement => {
   }
 
   return (
+
     <section className="container-fluid container-xxl p-5">
       <div className="row">
         <div className="col-md-10 col-lg-8 order-1 mx-auto posts">
           {renderPosts()}
         </div>
       </div>
+
+      {isModalOpen && selectedPost !== null && <ModalWindow post={selectedPost} onClose={closeModal} />}
+
     </section>
   )
 }
 
 export default MainSection
+export type { Post }

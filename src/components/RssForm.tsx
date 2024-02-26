@@ -1,4 +1,4 @@
-import React, { type ChangeEvent, type FC, type FormEvent, type ReactElement, useEffect, useState } from 'react'
+import React, { type ChangeEvent, type FC, type FormEvent, type ReactElement, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { isValidUrl } from '../utils/helpers'
 import { useTranslation } from 'react-i18next'

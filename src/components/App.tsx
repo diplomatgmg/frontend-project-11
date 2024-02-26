@@ -19,8 +19,8 @@ const App = (): ReactElement => {
 
   return (
     <main className="flex-grow-1">
-        <HeaderSection/>
-        <MainSection/>
+      <HeaderSection/>
+      <MainSection/>
     </main>
   )
 }
