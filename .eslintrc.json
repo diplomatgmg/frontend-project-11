@@ -24,6 +24,7 @@
     "no-multiple-empty-lines": "warn",
     "@typescript-eslint/object-curly-spacing": "warn",
     "no-empty": "warn",
+    "@typescript-eslint/no-misused-promises": "off",
     "react/jsx-max-props-per-line": [
       "error",
       {
