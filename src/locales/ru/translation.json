@@ -3,5 +3,9 @@
   "startReadingRss": "Начните читать RSS сегодня! Это легко, это красиво.",
   "rssLink": "Ссылка RSS",
   "add": "Добавить",
-  "example": "Пример"
+  "example": "Пример",
+  "posts": "Посты",
+  "watch": "Просмотр",
+  "rssSuccessfullyLoaded": "RSS успешно загружен",
+  "LinkMustBeValidUrl": "Ссылка должна быть валидным URL!"
 }

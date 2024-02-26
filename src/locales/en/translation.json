@@ -3,5 +3,10 @@
   "startReadingRss": "Start reading RSS today! It's easy, it's beautiful.",
   "rssLink": "RSS link",
   "add": "Add",
-  "example": "Example"
+  "example": "Example",
+  "posts": "Posts",
+  "watch": "Watch",
+  "rssSuccessfullyLoaded": "RSS successfully loaded",
+  "LinkMustBeValidUrl": "The link must be a valid URL!"
+
 }

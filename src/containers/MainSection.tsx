@@ -1,6 +1,7 @@
 import React, { type ReactElement } from 'react'
 import Button from '../components/Button'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 interface Post {
   title: string
@@ -8,6 +9,8 @@ interface Post {
 }
 
 const MainSection = (): ReactElement => {
+  const { t } = useTranslation()
+
   const posts = useSelector((state: any) => state.posts)
 
   const renderPosts = (): ReactElement | null => {
@@ -17,7 +20,7 @@ const MainSection = (): ReactElement => {
 
     return (
       <div className="card border-0">
-        <div className="card-body"><h2 className="card-title h4">Посты</h2></div>
+        <div className="card-body"><h2 className="card-title h4">{t('posts')}</h2></div>
         <ul className="list-group border-0 rounded-0">
           {posts.map(({ title, description }: Post) => (
             <li key={title}
@@ -30,7 +33,7 @@ const MainSection = (): ReactElement => {
                 {title}
               </a>
 
-              <Button text={'Просмотр'} type={'button'} isOutlinePrimary></Button>
+              <Button text={t('watch')} type={'button'} isOutlinePrimary></Button>
             </li>
           ))}
         </ul>

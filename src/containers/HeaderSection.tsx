@@ -21,13 +21,13 @@ const HeaderSection = (): ReactElement => {
 
             {isUrlValid !== null && !isUrlValid && (
               <p className="feedback position-absolute small text-danger">
-                Ссылка должна быть валидным URL
+                {t('LinkMustBeValidUrl')}
               </p>
             )}
 
             {isRssLoaded && isUrlValid !== null && isUrlValid && (
               <p className="feedback m-0 position-absolute small text-success">
-                RSS успешно загружен
+                {t('rssSuccessfullyLoaded')}
               </p>
             )}
 
