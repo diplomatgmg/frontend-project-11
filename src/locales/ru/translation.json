@@ -7,5 +7,7 @@
   "posts": "Посты",
   "watch": "Просмотр",
   "rssSuccessfullyLoaded": "RSS успешно загружен",
-  "LinkMustBeValidUrl": "Ссылка должна быть валидным URL!"
+  "linkMustBeValidUrl": "Ссылка должна быть валидным URL!",
+  "readCompletely": "Читать полностью",
+  "close": "Закрыть"
 }

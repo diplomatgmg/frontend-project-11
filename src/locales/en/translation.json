@@ -7,6 +7,7 @@
   "posts": "Posts",
   "watch": "Watch",
   "rssSuccessfullyLoaded": "RSS successfully loaded",
-  "LinkMustBeValidUrl": "The link must be a valid URL!"
-
+  "linkMustBeValidUrl": "The link must be a valid URL!",
+  "readCompletely": "Read completely",
+  "close": "Close"
 }

@@ -21,7 +21,7 @@ const HeaderSection = (): ReactElement => {
 
             {isUrlValid !== null && !isUrlValid && (
               <p className="feedback position-absolute small text-danger">
-                {t('LinkMustBeValidUrl')}
+                {t('linkMustBeValidUrl')}
               </p>
             )}
 
