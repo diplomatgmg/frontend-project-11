@@ -3,6 +3,7 @@ import Button from '../components/Button'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import ModalWindow from '../components/ModalWindow'
+import { type StoreState } from '../store'
 
 interface Post {
   title: string
@@ -11,7 +12,7 @@ interface Post {
 
 const MainSection = (): ReactElement => {
   const { t } = useTranslation()
-  const posts = useSelector((state: any) => state.posts)
+  const posts = useSelector((state: StoreState) => state.posts.posts)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedPost, setSelectedPost] = useState<Post | null>(null)

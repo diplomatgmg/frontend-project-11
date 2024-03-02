@@ -1,18 +1,35 @@
-import { createStore } from 'redux'
+import { configureStore, createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { type Post } from './containers/MainSection'
 
-const initialState = {
+interface PostState {
+  posts: Post[]
+}
+
+interface StoreState {
+  posts: PostState
+}
+
+const initialState: PostState = {
   posts: []
 }
 
-const rootReducer = (state = initialState, action: any): any => {
-  switch (action.type) {
-    case 'SET_STATE':
-      return { ...state, posts: action.payload }
-    default:
-      return state
+const postsSlice = createSlice({
+  name: 'posts',
+  initialState,
+  reducers: {
+    setPosts: (state: any, action: PayloadAction<any>) => {
+      state.posts = action.payload
+    }
   }
-}
+})
 
-const store = createStore(rootReducer)
+export const { setPosts } = postsSlice.actions
+
+const store = configureStore({
+  reducer: {
+    posts: postsSlice.reducer
+  }
+})
 
 export default store
+export { type PostState, type StoreState }

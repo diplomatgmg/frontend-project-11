@@ -4,6 +4,7 @@ import { isValidUrl } from '../utils/helpers'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import parseXmlFromUrl from '../utils/parseXmlFromUrl'
+import { setPosts } from '../store'
 
 interface RssFormProps {
   setIsUrlValid: (value: boolean) => void
@@ -26,7 +27,7 @@ const RssForm: FC<RssFormProps> = ({ setIsUrlValid, setIsRssLoaded }): ReactElem
     setInput(value)
   }
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<any> => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
 
     if (!isFormValid) {
@@ -35,7 +36,7 @@ const RssForm: FC<RssFormProps> = ({ setIsUrlValid, setIsRssLoaded }): ReactElem
 
     const posts = await parseXmlFromUrl(input)
     setIsRssLoaded(true)
-    dispatch({ type: 'SET_STATE', payload: posts })
+    dispatch(setPosts(posts))
   }
 
   return (
